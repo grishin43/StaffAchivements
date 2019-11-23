@@ -1,0 +1,40 @@
+<a [routerLink]="'/list'" class="route-back">Назад</a>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="achieve-single">
+                <div class="achieve-big-icon"
+                     [ngStyle]="{ 'background': 'url(' + achieve.icon + ') no-repeat center/contain'}"></div>
+                <h3 class="text-center">{{achieve.title}}</h3>
+                <p>
+                    <i class="fal fa-bullseye-arrow"></i>
+                    <span>Цель: </span>{{achieve.target_info}}
+                </p>
+                <p>
+                    <i class="fal fa-info-circle"></i>
+                    <span>Подробно: </span>{{achieve.condition}}
+                </p>
+                <p>
+                    <i class="fal fa-asterisk"></i>
+                    <span>Текущее значение: </span>{{achieve.current_value}}
+                </p>
+                <p>
+                    <i class="fal fa-asterisk"></i>
+                    <span>Целевое значение: </span>{{achieve.target_value}}
+                </p>
+                <p>
+                    <i class="fal fa-coins"></i>
+                    <span>Очков достижения: </span>{{achieve.points}}
+                </p>
+                <p>
+                    <i class="fal fa-lock-alt" *ngIf="!achieve.unlocked; else elseLock"></i>
+                    <ng-template #elseLock>
+                        <i class="fal fa-award"></i>
+                    </ng-template>
+                    <span>Статус: </span>{{achieve.unlocked ? 'достижение получено!' : 'достижение ещё не открыто'}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

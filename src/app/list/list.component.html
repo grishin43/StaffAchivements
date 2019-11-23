@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="achieve-main">
+                <div class="achieve-main_icon"></div>
+                <span class="achieve-detail">В этом месяце вы открыли <span>{{unlockedAchievesCount}}</span>
+                наград из <span>{{achievements.length}}</span></span>
+                <div class="achieve-progress_bar">
+                    <span>{{currentAchievesPoints}} / {{totalAchievesPoints}}</span>
+                    <div class="achieve-progress" [style.width]="mainProgress + '%'"
+                         [style.background]="getProgressColor(mainProgress)"></div>
+                </div>
+                <span class="achieve-detail">очков достижений</span>
+            </div>
+        </div>
+        <div class="col-12">
+            <ul class="d-flex flex-wrap achieves-list">
+                <li *ngFor="let item of achievements;" [class.active]="item.unlocked">
+                    <a [routerLink]="['/achievement', item.id]" class="d-flex align-items-center">
+                        <div class="achieve-icon"
+                             [ngStyle]="item.unlocked
+                             ? { 'background': 'url(../assets/icons/sticker.webp) no-repeat center/65px'}
+                             : { 'background': 'url(../assets/icons/sticker-locked.png) no-repeat center/65px'}">
+                            <span class="achieve-star" *ngIf="item.unlocked"></span>
+                        </div>
+                        <div class="achieve-info">
+                            <span class="achieve-title">{{item.title}}</span>
+                            <span class="achieve-detail">{{item.target_info}} {{item.condition}}</span>
+                            <span class="achieve-detail">
+                                Цель: <span>{{item.target_value}}</span>, текущий показатель: <span>{{item.current_value}}</span>
+                            </span>
+                            <div class="achieve-progress_bar">
+                                <span>{{item.progress}}</span>
+                                <div class="achieve-progress" [style.width]="item.progress"
+                                     [style.background]="getProgressColor(item.progress)"></div>
+                            </div>
+                        </div>
+                        <div class="achieve-points_info">
+                            <div class="achieve-cup"
+                                 [ngStyle]="item.unlocked
+                                 ? { 'background': 'url(../assets/img/cup.png) no-repeat center/80px'}
+                                 : { 'background': 'url(../assets/img/cup-locked.png) no-repeat center/80px'}">
+                            </div>
+                            <span class="achieve-points">
+                            {{item.points}} <span>очков</span>
+                            </span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
