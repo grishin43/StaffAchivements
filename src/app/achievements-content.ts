@@ -9,7 +9,8 @@ export const content = [
         target_value: '500,00 грн',
         points: '15',
         progress: '100%',
-        unlocked: true
+        unlocked: true,
+        enabled: true
     },
     {
         id: '2',
@@ -21,7 +22,8 @@ export const content = [
         target_value: '2 мин 16 сек',
         points: '15',
         progress: '100%',
-        unlocked: true
+        unlocked: true,
+        enabled: true
     },
     {
         id: '3',
@@ -33,6 +35,7 @@ export const content = [
         target_value: '50',
         points: '15',
         progress: '40%',
-        unlocked: false
+        unlocked: false,
+        enabled: false
     }
 ];

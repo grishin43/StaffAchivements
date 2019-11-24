@@ -10,21 +10,30 @@ import {UsersListService} from '../users-list.service';
 export class AdminComponent implements OnInit {
 
     usersList: any;
+    achievementsList: any;
     selectedUser: any;
     selectedUserIndex: number;
+    searchText: string;
 
-    constructor(private content: UsersListService) {
+    constructor(private userContent: UsersListService, private achievementsContent: AchievementsListService) {
     }
 
     ngOnInit() {
-        this.usersList = this.content.getUsersList();
+        this.usersList = this.userContent.getUsersList();
+        this.achievementsList = this.achievementsContent.getAchievementsList();
     }
 
     setSelectedUser(userObj, userIndex) {
         this.selectedUser = userObj;
         this.selectedUserIndex = userIndex;
-        console.log(userObj);
     }
 
+    updateUserAchievementStatus(status) {
+        console.log(status);
+    }
+
+    setSearchText(text) {
+        this.searchText = text;
+    }
 
 }

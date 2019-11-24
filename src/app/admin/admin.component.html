@@ -16,11 +16,11 @@
             </ul>
         </div>
         <div class="col-lg-9 col-sm-8 col-7">
-            <div class="user-cart d-flex flex-wrap" *ngIf="selectedUser">
+            <div class="user-cart d-flex flex-wrap mb-30" *ngIf="selectedUser">
                 <div class="user-avatar"
                      [ngStyle]="
-                     { 'background': 'url(' + selectedUser.icon + ') no-repeat center/contain'}"
-                ></div>
+                     { 'background': 'url(' + selectedUser.icon + ') no-repeat center/contain'}">
+                </div>
                 <div class="user-info">
                     <div class="row">
                         <div class="col-5">
@@ -60,6 +60,40 @@
                                 Перерывы (среднее/суммарно): <br>
                                 <span>{{selectedUser.time_break_average}} / {{selectedUser.time_break_summary}}</span>
                             </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-achievements row" *ngIf="selectedUser">
+                <div class="col-6">
+                    <h3>Достижения</h3>
+                </div>
+                <div class="col-6">
+                    <div class="achieve-text_group">
+                        <i class="far fa-search"></i>
+                        <input type="search" name="search-achievements" id="search-achievements"
+                               placeholder="Поиск" class="achieve-text" [(ngModel)]="query">
+                    </div>
+                </div>
+                <div class="col-6 mb-15" *ngFor="let item of achievementsList | filter:'title':query; let i=index">
+                    <div class="user-achievements_item d-flex align-items-center">
+                        <div class="user-achievements_item-left">
+                            <span class="achieve-detail text-center">{{item.title}}</span>
+                            <div class="achieve-progress_bar">
+                                <span>{{item.progress}}</span>
+                                <div class="achieve-progress" [style.width]="item.progress"
+                                     [style.background]="achievementsContent.getProgressColor(item.progress)"></div>
+                            </div>
+                            <span class="achieve-detail text-center">{{item.current_value}} / {{item.target_value}}</span>
+                        </div>
+                        <div class="user-achievements_item-right">
+                            <div class="achieve-radio_group d-flex">
+                                <input type="checkbox" class="achieve-radio" [name]="'achieve-radio-' + i"
+                                       [id]="'achieve-radio-' + i" [checked]="item.enabled"
+                                       (change)="updateUserAchievementStatus(this.checked)">
+                                <label [for]="'achieve-radio-' + i" class="achieve-radio_label"
+                                       title="Включить/Отключить достижение"></label>
+                            </div>
                         </div>
                     </div>
                 </div>

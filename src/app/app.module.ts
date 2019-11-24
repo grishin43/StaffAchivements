@@ -5,17 +5,21 @@ import {AppRoutingModule} from './app-routing.module';
 import {ListComponent} from './list/list.component';
 import {SingleComponent} from './single/single.component';
 import {AdminComponent} from './admin/admin.component';
+import { FilterPipe } from './filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
         AppComponent,
         ListComponent,
         SingleComponent,
-        AdminComponent
+        AdminComponent,
+        FilterPipe
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
