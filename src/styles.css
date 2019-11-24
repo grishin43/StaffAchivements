@@ -37,7 +37,7 @@ a, a:hover {
     transition: 0.2s ease-in-out;
 }
 
-.route-back:hover{
+.route-back:hover {
     color: #118B4B;
     background: white;
 }
@@ -58,7 +58,7 @@ a, a:hover {
     box-shadow: 0 2px 4px 0 rgba(81, 79, 89, 0.2);
 }
 
-.achieves-list li:hover{
+.achieves-list li:hover {
     background: rgba(109, 114, 195, 0.2);
     box-shadow: 0 2px 4px 0 rgba(81, 79, 89, 0.3);
 }
@@ -116,7 +116,7 @@ a, a:hover {
     margin-top: 10px;
 }
 
-.achieve-points_info{
+.achieve-points_info {
     -webkit-box-flex: 0;
     flex: 0 0 100px;
     max-width: 100px;
@@ -221,6 +221,7 @@ a, a:hover {
     height: 300px;
     display: block;
     margin: 0 auto 30px;
+    position: relative;
 }
 
 .achieve-single {
@@ -231,6 +232,12 @@ a, a:hover {
 .achieve-single p {
     margin-bottom: 5px;
     position: relative;
+    font-weight: 500;
+}
+
+.achieve-single p > span {
+    font-weight: 300;
+    opacity: 0.7;
 }
 
 .achieve-single p > i {
@@ -245,5 +252,16 @@ a, a:hover {
 
 h3 {
     font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.achieve-single .achieve-progress_bar {
     margin-bottom: 30px;
+}
+
+.achieve-big-icon > .achieve-star {
+    width: 60px;
+    height: 60px;
+    left: 0px;
+    top: -30px;
 }

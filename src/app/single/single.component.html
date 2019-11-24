@@ -5,8 +5,18 @@
         <div class="col-12">
             <div class="achieve-single">
                 <div class="achieve-big-icon"
-                     [ngStyle]="{ 'background': 'url(' + achieve.icon + ') no-repeat center/contain'}"></div>
+                     [ngStyle]="
+                     achieve.unlocked
+                     ? { 'background': 'url(' + achieve.icon + ') no-repeat center/contain'}
+                    : { 'background': 'url(../assets/icons/sticker-locked.png) no-repeat center/contain'}">
+                    <span class="achieve-star" *ngIf="achieve.unlocked"></span>
+                </div>
                 <h3 class="text-center">{{achieve.title}}</h3>
+                <div class="achieve-progress_bar">
+                    <span>{{achieve.progress}}</span>
+                    <div class="achieve-progress" [style.width]="achieve.progress"
+                         [style.background]="content.getProgressColor(achieve.progress)"></div>
+                </div>
                 <p>
                     <i class="fal fa-bullseye-arrow"></i>
                     <span>Цель: </span>{{achieve.target_info}}

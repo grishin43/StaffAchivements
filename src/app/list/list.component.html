@@ -8,7 +8,7 @@
                 <div class="achieve-progress_bar">
                     <span>{{currentAchievesPoints}} / {{totalAchievesPoints}}</span>
                     <div class="achieve-progress" [style.width]="mainProgress + '%'"
-                         [style.background]="getProgressColor(mainProgress)"></div>
+                         [style.background]="content.getProgressColor(mainProgress)"></div>
                 </div>
                 <span class="achieve-detail">очков достижений</span>
             </div>
@@ -25,14 +25,14 @@
                         </div>
                         <div class="achieve-info">
                             <span class="achieve-title">{{item.title}}</span>
-                            <span class="achieve-detail">{{item.target_info}} {{item.condition}}</span>
+                            <span class="achieve-detail">{{item.target_info}}</span>
                             <span class="achieve-detail">
                                 Цель: <span>{{item.target_value}}</span>, текущий показатель: <span>{{item.current_value}}</span>
                             </span>
                             <div class="achieve-progress_bar">
                                 <span>{{item.progress}}</span>
                                 <div class="achieve-progress" [style.width]="item.progress"
-                                     [style.background]="getProgressColor(item.progress)"></div>
+                                     [style.background]="content.getProgressColor(item.progress)"></div>
                             </div>
                         </div>
                         <div class="achieve-points_info">
