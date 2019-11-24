@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-30">
+            <a [routerLink]="'/admin'" class="achieve-btn">
+                Назад
+            </a>
+        </div>
+        <div class="col-6">
+            <a type="button" class="d-flex achieve-row align-items-center"
+               *ngFor="let item of achievements; let i = index"
+               [class.active]="i === selectedAchieveIndex" (click)="setSelectedAchieve(item,i)">
+                <div class="col-5">
+                    {{item.title}}
+                </div>
+                <div class="col-2">
+                    {{item.points}}
+                </div>
+                <div class="col">
+                    {{item.condition_title}}
+                </div>
+                <div class="col-auto text-left">
+                    <i class="fal fa-pencil"></i>
+                </div>
+            </a>
+        </div>
+        <div class="col-6">
+            <div class="achieve-detail_info" *ngIf="selectedAchieve">
+                <h3>{{selectedAchieve.title}}</h3>
+                <p>{{selectedAchieve.target_info}}</p>
+                <form [formGroup]="achievementSaveForm" #formDir="ngForm"
+                      (ngSubmit)="sendData(achievementSaveForm.value)">
+                    <ul class="achieve-edit_list">
+                        <li>
+                            <div class="achieve-text_group d-flex align-items-center">
+                                <label for="achieve-condition" class="achieve_text-label">
+                                    Условие:
+                                </label>
+                                <input type="text" name="condition" id="achieve-condition"
+                                       [value]="selectedAchieve.condition" class="achieve_text"
+                                       formControlName="condition" required>
+                                <input type="text" name="condition_title" id="achieve-condition_title"
+                                       [value]="selectedAchieve.condition_title" class="achieve_text"
+                                       formControlName="condition_title" required>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="achieve-text_group d-flex align-items-center">
+                                <label for="achieve-target_value" class="achieve_text-label">Цель:</label>
+                                <input type="text" name="target_value" id="achieve-target_value"
+                                       [value]="selectedAchieve.target_value" class="achieve_text"
+                                       formControlName="target_value" required>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="achieve-text_group d-flex align-items-center">
+                                <label for="achieve-points" class="achieve_text-label">Поинтов:</label>
+                                <input type="text" name="points" id="achieve-points"
+                                       [value]="selectedAchieve.points" class="achieve_text"
+                                       formControlName="points" required>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="text-right">
+                        <button type="submit" class="achieve-btn">Сохранить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AchievementsListService} from '../achievements-list.service';
 import {UsersListService} from '../users-list.service';
+import {HttpService} from '../http.service';
 
 @Component({
     selector: 'app-admin',
@@ -13,14 +14,23 @@ export class AdminComponent implements OnInit {
     achievementsList: any;
     selectedUser: any;
     selectedUserIndex: number;
-    searchText: string;
+    users: any;
 
-    constructor(private userContent: UsersListService, private achievementsContent: AchievementsListService) {
+    constructor(
+        private userContent: UsersListService,
+        private achievementsContent: AchievementsListService,
+        private httpService: HttpService) {
     }
 
     ngOnInit() {
         this.usersList = this.userContent.getUsersList();
         this.achievementsList = this.achievementsContent.getAchievementsList();
+        this.httpService.getUsers((data) => {
+            this.users = data.data;
+            console.log(data);
+        }, (error) => {
+            console.log(error);
+        });
     }
 
     setSelectedUser(userObj, userIndex) {
@@ -31,9 +41,4 @@ export class AdminComponent implements OnInit {
     updateUserAchievementStatus(status) {
         console.log(status);
     }
-
-    setSearchText(text) {
-        this.searchText = text;
-    }
-
 }

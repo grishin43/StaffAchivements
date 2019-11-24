@@ -12,7 +12,7 @@ body {
     letter-spacing: 0.3px;
 }
 
-*:focus{
+*:focus {
     outline: none;
     -webkit-appearance: none;
 }
@@ -35,6 +35,7 @@ a, a:hover {
     padding: 6px 20px;
     border-radius: 4px;
     transition: 0.2s ease-in-out;
+    display: inline-block;
 }
 
 .btn-abs {
@@ -359,7 +360,7 @@ h3 {
 }
 
 .achieve-radio:checked + .achieve-radio_label:before {
-    left: calc(100% - 26px);
+    left: calc(100% - 28px);
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0);
 }
 
@@ -396,6 +397,12 @@ h3 {
     flex: 0 0 calc(100% - 60px);
     max-width: calc(100% - 60px);
     padding-right: 30px;
+    transition: 0.2s ease-in-out;
+    opacity: 1;
+}
+
+.disabled .user-achievements_item-left {
+    opacity: 0.4;
 }
 
 .user-achievements_item .achieve-progress_bar + .achieve-detail {
@@ -416,7 +423,7 @@ h3 {
     margin-top: 5px;
 }
 
-.achieve-text {
+.achieve-search {
     border: none;
     -webkit-appearance: none;
     background: transparent;
@@ -425,7 +432,7 @@ h3 {
     font-size: 14px;
 }
 
-.achieve-text_group {
+.achieve-search_group {
     position: relative;
     border: 2px solid #118B4B;
     border-radius: 30px;
@@ -435,7 +442,7 @@ h3 {
     padding-right: 10px;
 }
 
-.achieve-text_group > i {
+.achieve-search_group > i {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -446,4 +453,88 @@ h3 {
     z-index: 3;
     text-align: center;
     font-size: 18px;
+}
+
+.achieve-btn + .achieve-btn {
+    margin-left: 10px;
+}
+
+.achieve-row {
+    background: rgba(109, 114, 195, 0.1);
+    padding: 8px 0;
+    font-size: 14px;
+    -webkit-appearance: none;
+    border: none;
+}
+
+.achieve-row:hover{
+    background: rgba(109, 114, 195, 0.2);
+}
+
+.achieve-row:not(:last-child) {
+    border-bottom: 1px solid rgba(109, 114, 195, 0.1);
+}
+
+.achieve-row i {
+    font-size: 18px;
+    background: #118B4B;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.achieve-row.active, .achieve-row.active:hover {
+    background: #118B4B;
+    color: #ffffff !important;
+}
+
+.achieve-edit_list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.achieve_text {
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #118B4B;
+    border-radius: 0;
+    font-size: 14px;
+    color: #686868;
+    padding: 0 10px;
+}
+
+.achieve_text:focus{
+    color: #212529;
+}
+
+.achieve_text-label {
+    color: rgba(81, 79, 89, 0.6);
+    font-size: 14px;
+    margin: 0;
+    padding-right: 12px;
+}
+
+.achieve-text_group .achieve_text-label, .achieve-text_group .achieve-detail {
+    -webkit-box-flex: 0;
+    flex: 0 0 120px;
+    max-width: 120px;
+}
+
+.achieve-edit_list li:not(:last-child) {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.achieve-detail_info .achieve-detail {
+    font-size: 14px;
+}
+
+.achieve-text_group .achieve_text {
+    max-width: 120px;
+}
+
+.achieve-text_group .achieve_text + .achieve_text {
+    margin-left: 15px;
 }

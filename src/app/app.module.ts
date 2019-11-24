@@ -5,8 +5,10 @@ import {AppRoutingModule} from './app-routing.module';
 import {ListComponent} from './list/list.component';
 import {SingleComponent} from './single/single.component';
 import {AdminComponent} from './admin/admin.component';
-import { FilterPipe } from './filter.pipe';
-import { FormsModule } from '@angular/forms';
+import {FilterPipe} from './filter.pipe';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AchievesComponent } from './achieves/achieves.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -14,12 +16,15 @@ import { FormsModule } from '@angular/forms';
         ListComponent,
         SingleComponent,
         AdminComponent,
-        FilterPipe
+        FilterPipe,
+        AchievesComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
