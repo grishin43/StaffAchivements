@@ -22,22 +22,25 @@ a, a:hover {
     text-decoration: none;
 }
 
-.route-back {
+.achieve-btn {
     color: #ffffff;
-    position: fixed;
-    top: 20px;
-    left: 20px;
     background: #118B4B;
     border: 1px solid #118B4B;
     font-size: 16px;
     padding: 6px 20px;
     border-radius: 4px;
-    z-index: 10;
     box-shadow: 0 2px 4px 0 rgba(17, 139, 75, 0.5);
     transition: 0.2s ease-in-out;
 }
 
-.route-back:hover {
+.btn-abs {
+    position: fixed;
+    top: 20px;
+    z-index: 10;
+    left: 20px;
+}
+
+.achieve-btn:hover {
     color: #118B4B;
     background: white;
 }
@@ -262,6 +265,69 @@ h3 {
 .achieve-big-icon > .achieve-star {
     width: 60px;
     height: 60px;
-    left: 0px;
+    left: 0;
     top: -30px;
+}
+
+.achieve-btn.icon-btn {
+    padding: 5px 10px;
+}
+
+.user-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.user-list li a {
+    display: block;
+    color: #514f59;
+    background: rgba(109, 114, 195, 0.1);
+    padding: 8px 15px;
+    font-size: 14px;
+    box-shadow: none;
+    -webkit-appearance: none;
+}
+
+.user-list li a:hover {
+    background: rgba(109, 114, 195, 0.2);
+}
+
+.user-list li a.active,.user-list li a.active:hover {
+    background: #118B4B;
+    color: #ffffff;
+}
+
+.user-list li a > i {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.user-list > li:not(:last-child) > a {
+    border-bottom: 1px solid rgba(109, 114, 195, 0.1);
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgba(109, 114, 195, 0.1);
+    border-radius: 50%;
+    -webkit-box-flex: 0;
+    flex: 0 0 100px;
+    max-width: 100px;
+}
+
+.user-cart .user-info {
+    -webkit-box-flex: 0;
+    flex: 0 0 calc(100% - 100px);
+    max-width: calc(100% - 100px);
+    padding-left: 30px;
+}
+
+.user-cart {
+    font-size: 14px;
 }

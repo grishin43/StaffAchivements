@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-30">
+            <button class="achieve-btn icon-btn" title="Add new user">
+                <i class="fal fa-user-plus"></i>
+            </button>
+        </div>
+        <div class="col-lg-3 col-sm-4 col-5">
+            <ul class="user-list">
+                <li *ngFor="let item of usersList;let i = index">
+                    <a type="button" [class.active]="i === selectedUserIndex" (click)="setSelectedUser(item,i)">
+                        <i class="fal fa-user"></i>
+                        {{item.first_name}} {{item.last_name}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-9 col-sm-8 col-7">
+            <div class="user-cart d-flex flex-wrap" *ngIf="selectedUser">
+                <div class="user-avatar"
+                     [ngStyle]="
+                     { 'background': 'url(' + selectedUser.icon + ') no-repeat center/contain'}"
+                ></div>
+                <div class="user-info">
+                    <div class="row">
+                        <div class="col-5">
+                            <span class="achieve-detail">
+                                Имя: <span>{{selectedUser.first_name}} {{selectedUser.last_name}}</span>
+                            </span>
+                            <span class="achieve-detail">
+                                ID: <span>{{selectedUser.id}}</span>
+                            </span>
+                            <span class="achieve-detail">
+                                TOP: <span>{{selectedUser.top}}</span>
+                            </span>
+                            <span class="achieve-detail">
+                                Очки достижений: <span>{{selectedUser.points}}</span>
+                            </span>
+                            <span class="achieve-detail">
+                                Месяц: <span>01/11/2019 - 24/11/2019</span>
+                            </span>
+                            <span class="achieve-detail">
+                                Рабочие дни: <span>{{selectedUser.work_days}}</span>
+                            </span>
+                            <span class="achieve-detail">
+                                Опоздания:
+                                <span>{{selectedUser.delays_count}}</span>
+                            </span>
+                        </div>
+                        <div class="col-7">
+                            <span class="achieve-detail">
+                                Общее время (среднее/суммарно): <br>
+                                <span>{{selectedUser.time_total_average}} / {{selectedUser.time_total_summary}}</span>
+                            </span>
+                            <span class="achieve-detail">
+                                Рабочее время (среднее/суммарно): <br>
+                                <span>{{selectedUser.time_work_average}} / {{selectedUser.time_work_summary}}</span>
+                            </span>
+                            <span class="achieve-detail">
+                                Перерывы (среднее/суммарно): <br>
+                                <span>{{selectedUser.time_break_average}} / {{selectedUser.time_break_summary}}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
